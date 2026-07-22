@@ -1,0 +1,11 @@
+from prophet_model import Prophet
+import joblib
+
+# Assume you have your data in df
+model = Prophet()
+model.fit(df)  # Make sure df has 'ds' and 'y' columns
+
+# Save it to the correct path
+import os
+os.makedirs('models', exist_ok=True)
+joblib.dump(model, 'models/prophet_model.pkl')
